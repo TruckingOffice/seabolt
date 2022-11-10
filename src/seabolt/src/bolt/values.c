@@ -141,7 +141,7 @@ void _write_string(FILE* file, const char* data, size_t size)
         if (IS_PRINTABLE_ASCII(ch0) && ch0!=STRING_QUOTE) {
             fputc(ch0, file);
         }
-        else if (ch0>=0) {
+        else if (ch0!=0) {
             _write_escaped_code_point(file, (uint32_t) (ch0));
         }
         else if ((ch0 & 0xE0)==0xC0) {
